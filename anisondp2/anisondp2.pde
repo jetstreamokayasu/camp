@@ -6,11 +6,11 @@ AudioPlayer player;  //サウンドデータ格納用の変数
 //PImage katyusha, los, mission, panzer, correct, batsu;
 PImage correct, batsu;
 
-PImage [][] pho=new PImage[5][4];
+PImage [][] pho=new PImage[6][4];
 
-String [] music=new String[5];
+String [] music=new String[6];
 
-int frame, mu_num=5;
+int frame, mu_num=6;
 
 int count=0, pre_cout=0;
 
@@ -46,6 +46,10 @@ void setup(){
   pho[4][1]=loadImage("choise_heart.png");
   pho[4][2]=loadImage("choise_bird.png");
   pho[4][3]=loadImage("choise_love.png");
+  pho[5][0]=loadImage("choise_bookmark.png");
+  pho[5][1]=loadImage("choise_swan.png");
+  pho[5][2]=loadImage("choise_kizuna.png");
+  pho[5][3]=loadImage("choise_rate.png");
   
                  
    music[0]="Katyusha_01.mp3";
@@ -53,6 +57,7 @@ void setup(){
    music[2]="answer_01.mp3";
    music[3]="Never Ending_01.mp3";
    music[4]="Ring My Bell_01.mp3";
+   music[5]="bookmark_01.mp3";
    
    mem=get_no_dup_numbers(4);
    mu_mem=get_no_dup_numbers(mu_num);
