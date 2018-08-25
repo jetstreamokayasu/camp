@@ -4,6 +4,10 @@ Minim minim;  //Minim型変数であるminimの宣言
 AudioPlayer player;  //サウンドデータ格納用の変数
 
 PImage katyusha, los, mission, panzer, correct, batsu;
+
+int frame;
+
+boolean hantei,flag=false, click=true;
  
 void setup(){
  
@@ -32,19 +36,34 @@ void draw(){
   image(mission, 425, 125, 200, 100);
   image(panzer, 425, 475, 200, 100);
   
-  if(mousePressed){
-   
-    if(decision(mouseX, mouseY, 1)){
-      image(correct, 100, 100, 500, 500);
-    } else{
-      image(batsu, 100, 100, 500, 500);
-    }
-    
+  if(mousePressed &&click){
+    frame=frameCount;
+    hantei=decision(mouseX, mouseY, 1);
+    flag=true;
+    click=false;
   }
-  
-  
-  
+   
+  if(flag && (frameCount-frame)<100){
+     
+     if(hantei){
+    image(correct, 100, 100, 500, 500);
+    //println("frame="+frame+"frameCount="+frameCount);
+  } 
+  else{
+    image(batsu, 100, 100, 500, 500);
+    //println("frame="+frame+"frameCount="+frameCount);
+  }
+     
+   }
+   
+   else if(flag && (frameCount-frame)>=100){
+    flag=false; 
+    click=true;
+   }
+ 
 }
+
+
  
 void stop(){
  
