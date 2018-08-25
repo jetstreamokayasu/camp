@@ -6,11 +6,11 @@ AudioPlayer player;  //サウンドデータ格納用の変数
 //PImage katyusha, los, mission, panzer, correct, batsu;
 PImage correct, batsu;
 
-PImage [][] pho=new PImage[3][4];
+PImage [][] pho=new PImage[5][4];
 
-String [] music=new String[3];
+String [] music=new String[5];
 
-int frame, mu_num=3;
+int frame, mu_num=5;
 
 int count=0, pre_cout=0;
 
@@ -38,11 +38,21 @@ void setup(){
   pho[2][1]=loadImage("choise_letter.png");
   pho[2][2]=loadImage("choise_orion.png");
   pho[2][3]=loadImage("choise_ryuo.png");
+  pho[3][0]=loadImage("choise_ending.png");
+  pho[3][1]=loadImage("choise_sirusi.png");
+  pho[3][2]=loadImage("choise_lady.png");
+  pho[3][3]=loadImage("choise_pride.png");
+  pho[4][0]=loadImage("choise_ring.png");
+  pho[4][1]=loadImage("choise_heart.png");
+  pho[4][2]=loadImage("choise_bird.png");
+  pho[4][3]=loadImage("choise_love.png");
   
                  
    music[0]="Katyusha_01.mp3";
    music[1]="orangemint_01.mp3";
    music[2]="answer_01.mp3";
+   music[3]="Never Ending_01.mp3";
+   music[4]="Ring My Bell_01.mp3";
    
    mem=get_no_dup_numbers(4);
    mu_mem=get_no_dup_numbers(mu_num);
@@ -98,10 +108,10 @@ void draw(){
   line(0,height/2, width, height/2);
   
   if((count-pre_cout)==0){
-    putPhoto(pho[count][0], (ran+mem[0])%4+1);
-    putPhoto(pho[count][1], (ran+mem[1])%4+1);
-    putPhoto(pho[count][2], (ran+mem[2])%4+1);
-    putPhoto(pho[count][3], (ran+mem[3])%4+1);
+    putPhoto(pho[mu_mem[count]][0], (ran+mem[0])%4+1);
+    putPhoto(pho[mu_mem[count]][1], (ran+mem[1])%4+1);
+    putPhoto(pho[mu_mem[count]][2], (ran+mem[2])%4+1);
+    putPhoto(pho[mu_mem[count]][3], (ran+mem[3])%4+1);
   }else{
     pre_cout=count;
     flag=true;
